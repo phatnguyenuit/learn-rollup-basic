@@ -1,0 +1,20 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>System</title>
+  </head>
+  <body>
+    <script src="node_modules/systemjs/dist/system.min.js"></script>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "cb-math-fun": "./node_modules/cb-math-fun/dist/index.system.js"
+        }
+      }
+    </script>
+    <script>
+      System.import("./dist/main.system.js");
+    </script>
+  </body>
+</html>
