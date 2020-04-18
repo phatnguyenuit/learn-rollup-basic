@@ -3,7 +3,7 @@
  * https://github.com/differui/rollup-plugin-sass/blob/master/src/index.js
  */
 
-import { Plugin, TransformResult } from "rollup";
+import { Plugin, TransformResult, ExistingRawSourceMap } from "rollup";
 import { FilterPattern, createFilter } from "@rollup/pluginutils";
 import { Options } from "node-sass";
 import { renderSass, insertStyle } from "./utils/css";
@@ -22,15 +22,19 @@ const plugin = ({
       if (!filter(id)) return null;
 
       const options: Options = { ...sassOptions, data: code };
-      const { css } = await renderSass(options);
+      const { css, map } = await renderSass(options);
       const cssText = css.toString().trim();
       const sourceCode = `export default ${toExecutionSource(
         insertStyle,
         cssText
       )};`;
+      const sourcemap = {
+        mappings: map?.toString() ?? "",
+      } as ExistingRawSourceMap;
 
       return {
         code: sourceCode,
+        map: sourcemap,
       };
     },
   };
