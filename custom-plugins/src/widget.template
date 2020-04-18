@@ -1,0 +1,14 @@
+<form class="cb-form" id="cbForm">
+  <div class="cb-form-caption">{caption}</div>
+  <div class="cb-form-group">
+    <label for="name">{nameLabel}:</label>
+    <input type="text" name="name" value="{name}" />
+  </div>
+  <div class="cb-form-group">
+    <label for="password">{passwordLabel}:</label>
+    <input type="password" name="password" value="{password}" />
+  </div>
+  <div class="cb-form-group">
+    <button type="submit">{submitLabel}</button>
+  </div>
+</form>

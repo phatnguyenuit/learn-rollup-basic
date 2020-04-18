@@ -1,0 +1,24 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IIFE</title>
+  </head>
+  <body>
+    <div id="widget"></div>
+    <div>
+      <button onclick="widget.show()" type="button">Show</button>
+      <button onclick="widget.dispose()" type="button">Close</button>
+    </div>
+    <script src="../dist/index.min.js"></script>
+    <script>
+      window.widget = new CbWidget("#widget", {
+        caption: "COOL FORM",
+        nameLabel: "Cool Name",
+        passwordLabel: "Cool Password",
+        submitLabel: "Let me in",
+      });
+      widget.onSubmit = () => console.log("Submitted");
+    </script>
+  </body>
+</html>

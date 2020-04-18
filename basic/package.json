@@ -7,22 +7,20 @@
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^7.1.3",
     "@rollup/plugin-typescript": "^4.1.1",
-    "chokidar-cli": "^2.1.0",
+    "@rollup/pluginutils": "^3.0.9",
     "es-module-shims": "^0.4.6",
     "requirejs": "^2.3.6",
-    "rimraf": "^3.0.2",
     "rollup": "^2.6.1",
     "rollup-plugin-cleanup": "^3.1.1",
     "systemjs": "^6.3.1",
+    "ts-node": "^8.8.2",
     "tslib": "^1.11.1",
     "typescript": "^3.8.3"
   },
   "scripts": {
-    "build": "rollup -c",
-    "build:config": "yarn run-build:config && chokidar \"rollup.config.ts\" -c \"yarn run-build:config\" --verbose",
-    "dev": "yarn build && chokidar \"rollup.config.cjs\" \"src/**/*.ts\" -c \"yarn build\"",
-    "prebuild": "rimraf dist",
-    "run-build:config": "tsc rollup.config.ts --esModuleInterop --moduleResolution node --skipLibCheck && mv rollup.config.js rollup.config.cjs"
+    "build": "rollup -c --watch",
+    "build:config": "tsc rollup.config.ts --esModuleInterop --module es2020 --target es2018 --moduleResolution node --skipLibCheck -w",
+    "prebuild": "rm -rf dist"
   },
   "dependencies": {
     "cb-logger-fun": "^1.0.1",

@@ -77,6 +77,9 @@ const options: RollupOptions[] = [
         sourcemap: false,
       }),
     ],
+    watch: {
+      include: ["src/**", "rollup.config.js"],
+    },
   },
 ];
 

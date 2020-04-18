@@ -1,0 +1,38 @@
+.cb-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 32px auto 0;
+  font-family: Roboto, "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+
+  .cb-form-caption {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .cb-form-group {
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
+
+    label {
+      width: 132px;
+      font-weight: bold;
+    }
+
+    input {
+      flex: 1;
+      padding: 6px 12px;
+    }
+
+    [type="submit"] {
+      flex: 1;
+      display: block;
+      max-width: calc(100% - 132px);
+      margin-left: auto;
+      padding: 6px 32px;
+    }
+  }
+}
