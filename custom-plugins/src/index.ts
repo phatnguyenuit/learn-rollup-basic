@@ -2,7 +2,7 @@ import buildHtml from "./widget.template";
 import "./widget.scss";
 
 export default class CbWidget {
-  private element: ChildNode | null = null;
+  private container: Element | null = null;
   public onSubmit: VoidFunction = () => {};
   constructor(private selector: string, private data: object) {}
 
@@ -13,7 +13,7 @@ export default class CbWidget {
     const container = document.querySelector(this.selector);
     if (container) {
       container.innerHTML = html;
-      this.element = container.firstChild;
+      this.container = container;
       const form = container.querySelector("#cbForm") as HTMLFormElement;
       form.onsubmit = (e) => {
         e.preventDefault();
@@ -23,9 +23,8 @@ export default class CbWidget {
   }
 
   dispose() {
-    if (this.element) {
-      this.element.remove();
-      this.element = null;
+    if (this.container) {
+      this.container.innerHTML = "";
     }
   }
 }
