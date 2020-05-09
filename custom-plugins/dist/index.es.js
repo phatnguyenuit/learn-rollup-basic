@@ -34,7 +34,7 @@ class CbWidget {
     constructor(selector, data) {
         this.selector = selector;
         this.data = data;
-        this.element = null;
+        this.container = null;
         this.onSubmit = () => { };
     }
     show() {
@@ -44,7 +44,7 @@ class CbWidget {
         const container = document.querySelector(this.selector);
         if (container) {
             container.innerHTML = html;
-            this.element = container.firstChild;
+            this.container = container;
             const form = container.querySelector("#cbForm");
             form.onsubmit = (e) => {
                 e.preventDefault();
@@ -53,9 +53,8 @@ class CbWidget {
         }
     }
     dispose() {
-        if (this.element) {
-            this.element.remove();
-            this.element = null;
+        if (this.container) {
+            this.container.innerHTML = "";
         }
     }
 }

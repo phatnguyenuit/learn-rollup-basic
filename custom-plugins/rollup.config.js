@@ -1,5 +1,6 @@
 import typescript from "rollup-plugin-typescript2";
 import { terser } from "rollup-plugin-terser";
+import lifecycleLog from "./plugins/rollup-plugin-lifecycle-log";
 import templateString from "./plugins/rollup-plugin-template-string";
 import sass from "./plugins/rollup-plugin-import-sass";
 const input = "src/index.ts";
@@ -10,6 +11,7 @@ const watchOptions = {
     exclude: ["*.d.ts"],
     include: ["src/**", "rollup.config.js"],
 };
+const lifecycleLogPlugin = lifecycleLog();
 const tsPlugin = typescript();
 const templatePlugin = templateString({
     emitDeclaration: true,
@@ -36,7 +38,7 @@ const iifeOptions = {
         name: outputName,
         sourcemap: true,
     },
-    plugins: [tsPlugin, templatePlugin, sassPlugin],
+    plugins: [lifecycleLogPlugin, tsPlugin, templatePlugin, sassPlugin],
     watch: watchOptions,
 };
 /** IIFE - Minimized */

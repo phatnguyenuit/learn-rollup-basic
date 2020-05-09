@@ -2,7 +2,7 @@ import "./widget.scss";
 export default class CbWidget {
     private selector;
     private data;
-    private element;
+    private container;
     onSubmit: VoidFunction;
     constructor(selector: string, data: object);
     show(): void;

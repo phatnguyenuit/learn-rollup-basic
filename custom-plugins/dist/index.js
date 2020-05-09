@@ -39,7 +39,7 @@ var CbWidget = (function () {
       constructor(selector, data) {
           this.selector = selector;
           this.data = data;
-          this.element = null;
+          this.container = null;
           this.onSubmit = () => { };
       }
       show() {
@@ -49,7 +49,7 @@ var CbWidget = (function () {
           const container = document.querySelector(this.selector);
           if (container) {
               container.innerHTML = html;
-              this.element = container.firstChild;
+              this.container = container;
               const form = container.querySelector("#cbForm");
               form.onsubmit = (e) => {
                   e.preventDefault();
@@ -58,9 +58,8 @@ var CbWidget = (function () {
           }
       }
       dispose() {
-          if (this.element) {
-              this.element.remove();
-              this.element = null;
+          if (this.container) {
+              this.container.innerHTML = "";
           }
       }
   }

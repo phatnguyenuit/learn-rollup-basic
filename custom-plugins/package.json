@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c --watch",
-    "build:config": "tsc -p ./plugins -w",
+    "build": "rollup -c",
+    "build:config": "tsc -p ./plugins",
     "prebuild": "rm -rf dist"
   },
   "devDependencies": {
@@ -13,6 +13,7 @@
     "@types/html-minifier": "^3.5.3",
     "@types/node": "^13.11.1",
     "@types/node-sass": "^4.11.0",
+    "chalk": "^4.0.0",
     "html-minifier": "^4.0.0",
     "node-sass": "^4.13.1",
     "rollup": "^2.6.1",
