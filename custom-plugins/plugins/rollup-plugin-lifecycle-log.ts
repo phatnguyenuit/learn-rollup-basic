@@ -99,10 +99,10 @@ const plugin = (): Plugin => ({
     log(hookLog("resolveFileUrl"), paramLog("options", options));
     return null;
   },
-  resolveImportMeta: (prop, options) => {
+  resolveImportMeta: (property, options) => {
     log(
       hookLog("resolveImportMeta"),
-      paramLog("prop", prop),
+      paramLog("prop", property),
       paramLog("options", options)
     );
     return null;

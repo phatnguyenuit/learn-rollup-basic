@@ -81,8 +81,8 @@ const plugin = () => ({
         log(hookLog("resolveFileUrl"), paramLog("options", options));
         return null;
     },
-    resolveImportMeta: (prop, options) => {
-        log(hookLog("resolveImportMeta"), paramLog("prop", prop), paramLog("options", options));
+    resolveImportMeta: (property, options) => {
+        log(hookLog("resolveImportMeta"), paramLog("prop", property), paramLog("options", options));
         return null;
     },
     renderChunk: (code, chunk, options) => {
