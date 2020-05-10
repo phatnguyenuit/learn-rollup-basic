@@ -3,7 +3,17 @@ declare module "*.scss" {
   export default css;
 }
 
-declare module "*.template" {
+declare module "*.html" {
   var transform: (data: object) => string;
   export default transform;
+}
+
+declare module "*.png" {
+  var src: string;
+  export default src;
+}
+
+declare module "*.svg" {
+  var src: string;
+  export default src;
 }

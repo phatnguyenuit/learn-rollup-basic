@@ -10,6 +10,19 @@
     font-size: 24px;
     font-weight: bold;
     text-align: center;
+    line-height: 32px;
+  }
+
+  .cb-form-caption-img {
+    display: inline-block;
+    height: 32px;
+    margin: 0 8px 0 0;
+    vertical-align: middle;
+  }
+
+  .cb-form-img {
+    display: block;
+    margin: 8px auto;
   }
 
   .cb-form-group {

@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IIFE</title>
+    <title>UMD</title>
   </head>
   <body>
     <div id="widget"></div>
@@ -10,7 +10,7 @@
       <button onclick="widget.show()" type="button">Show</button>
       <button onclick="widget.dispose()" type="button">Close</button>
     </div>
-    <script src="../dist/index.min.js"></script>
+    <script src="../dist/index.umd.js"></script>
     <script>
       window.widget = new CbWidget("#widget", {
         caption: "COOL FORM",

@@ -1,5 +1,7 @@
 export interface TemplateData {
+  "captionImg"?: unknown;
   "caption"?: unknown;
+  "img"?: unknown;
   "nameLabel"?: unknown;
   "name"?: unknown;
   "passwordLabel"?: unknown;

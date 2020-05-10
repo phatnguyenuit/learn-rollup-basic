@@ -1,7 +1,3 @@
-'use strict';
-
-
-
 const tagged = (tokens, ...keys) => (data) => tokens.reduce((result, token, index) => {
     var _a;
     return result +
@@ -72,5 +68,5 @@ class CbWidget {
     }
 }
 
-module.exports = CbWidget;
-//# sourceMappingURL=index.js.map
+export default CbWidget;
+//# sourceMappingURL=index.mjs.map

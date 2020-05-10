@@ -1,5 +1,7 @@
-import buildHtml from "./widget.template";
+import buildHtml, { TemplateData } from "./widget.html";
 import "./widget.scss";
+import captionImg from "./search.svg";
+import img from "./gear.png";
 
 export default class CbWidget {
   private container: Element | null = null;
@@ -9,7 +11,8 @@ export default class CbWidget {
   show() {
     if (!this.selector || !window || typeof window !== "object") return;
 
-    const html = buildHtml(this.data);
+    const htmlData: TemplateData = { captionImg, img, ...this.data };
+    const html = buildHtml(htmlData);
     const container = document.querySelector(this.selector);
     if (container) {
       container.innerHTML = html;
