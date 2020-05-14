@@ -3,11 +3,14 @@ import { FilterPattern } from "@rollup/pluginutils";
 import filesize from "rollup-plugin-filesize";
 import typescript from "rollup-plugin-typescript2";
 import { terser } from "rollup-plugin-terser";
-import lifecycleLog from "./plugins/rollup-plugin-lifecycle-log";
-import inlineImage from "./plugins/rollup-plugin-inline-image";
-import templateString from "./plugins/rollup-plugin-template-string";
-import sass from "./plugins/rollup-plugin-import-sass";
-import pkg from "./package.json";
+import analyzer from "rollup-plugin-analyzer";
+import lifecycleLog from "./rollup-plugin-lifecycle-log";
+import absoluteImport from "./rollup-plugin-absolute-import";
+import inlineImage from "./rollup-plugin-inline-image";
+import templateString from "./rollup-plugin-template-string";
+import sass from "./rollup-plugin-import-sass";
+import pkg from "../package.json";
+import tsconfig from "../tsconfig.json";
 
 const templateInclude: FilterPattern = [/\.html$/, /\.template$/];
 const watchOptions: WatcherOptions = {
@@ -17,8 +20,11 @@ const watchOptions: WatcherOptions = {
   include: ["src/**", "rollup.config.js"],
 };
 const lifecycleLogPlugin = lifecycleLog();
+const absoluteImportPlugin = absoluteImport({
+  baseUrl: tsconfig.compilerOptions.baseUrl,
+});
 const filesizePlugin = filesize();
-const tsPlugin = typescript();
+const tsPlugin = typescript({ tsconfig: "./tsconfig.json" });
 const templatePlugin = templateString({
   emitDeclaration: true,
   include: templateInclude,
@@ -36,6 +42,7 @@ const sassPlugin = sass({ sassOptions: { outputStyle: "expanded" } });
 const sassMinPlugin = sass({ sassOptions: { outputStyle: "compressed" } });
 const inlineImagePlugin = inlineImage();
 const terserPlugin = terser({ sourcemap: true });
+const analyzerPlugin = analyzer({ summaryOnly: true });
 
 /** UMD */
 const umdOptions: RollupOptions = {
@@ -49,11 +56,13 @@ const umdOptions: RollupOptions = {
   },
   plugins: [
     lifecycleLogPlugin,
+    absoluteImportPlugin,
     tsPlugin,
     templateMinPlugin,
     sassMinPlugin,
     inlineImagePlugin,
     filesizePlugin,
+    analyzerPlugin,
   ],
   watch: watchOptions,
 };
@@ -74,6 +83,7 @@ const nonMinOptions: RollupOptions = {
     },
   ],
   plugins: [
+    absoluteImportPlugin,
     tsPlugin,
     templatePlugin,
     sassPlugin,
@@ -101,6 +111,7 @@ const minOptions: RollupOptions = {
     },
   ],
   plugins: [
+    absoluteImportPlugin,
     tsPlugin,
     templateMinPlugin,
     sassMinPlugin,

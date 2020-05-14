@@ -21,7 +21,6 @@
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "files": ["../rollup.config.ts"],
   "include": ["."],
   "exclude": ["../node_modules"]
 }

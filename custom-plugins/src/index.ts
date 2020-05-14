@@ -1,7 +1,7 @@
-import buildHtml, { TemplateData } from "./widget.html";
-import "./widget.scss";
-import captionImg from "./search.svg";
-import img from "./gear.png";
+import buildHtml, { TemplateData } from "templates/widget.html";
+import captionImg from "images/search.svg";
+import img from "images/gear.png";
+import "./styles.scss";
 
 export default class CbWidget {
   private container: Element | null = null;

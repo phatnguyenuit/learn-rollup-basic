@@ -10,8 +10,8 @@
   "module:min": "dist/index.min.mjs",
   "umd:main": "dist/index.umd.js",
   "scripts": {
-    "build": "rollup -c",
-    "build:config": "tsc -p ./plugins",
+    "build": "rollup -c rollup/rollup.config.js",
+    "build:config": "tsc -p ./rollup",
     "prebuild": "rm -rf dist"
   },
   "devDependencies": {
@@ -25,6 +25,7 @@
     "mini-svg-data-uri": "^1.2.3",
     "node-sass": "^4.13.1",
     "rollup": "^2.6.1",
+    "rollup-plugin-analyzer": "^3.2.3",
     "rollup-plugin-filesize": "^8.0.2",
     "rollup-plugin-terser": "^5.3.0",
     "rollup-plugin-typescript2": "^0.27.0",

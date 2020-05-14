@@ -23,8 +23,9 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": "src"
   },
   "include": ["src/"],
-  "exclude": ["plugins/"]
+  "exclude": ["rollup"]
 }

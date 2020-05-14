@@ -1,4 +1,4 @@
-import "./widget.scss";
+import "./styles.scss";
 export default class CbWidget {
     private selector;
     private data;
