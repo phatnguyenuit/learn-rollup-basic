@@ -1,6 +1,6 @@
 /**
  * References:
- * https://github.com/differui/rollup-plugin-sass/blob/master/src/index.js
+ * rollup-plugin-sass: https://github.com/differui/rollup-plugin-sass/blob/master/src/index.js
  */
 
 import { Plugin, TransformResult, ExistingRawSourceMap } from "rollup";

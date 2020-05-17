@@ -1,6 +1,6 @@
 /**
  * References:
- * https://github.com/rollup/plugins/blob/master/packages/image/src/index.js
+ * @rollup/plugin-image: https://github.com/rollup/plugins/blob/master/packages/image
  */
 
 import { extname } from "path";

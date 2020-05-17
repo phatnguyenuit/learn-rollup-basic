@@ -1,7 +1,7 @@
 /**
  * References:
- * https://github.com/bdadam/rollup-plugin-html
- * https://github.com/kangax/html-minifier
+ * rollup-plugin-html: https://github.com/bdadam/rollup-plugin-html
+ * HTMLMinifier: https://github.com/kangax/html-minifier
  */
 
 import { promises } from "fs";

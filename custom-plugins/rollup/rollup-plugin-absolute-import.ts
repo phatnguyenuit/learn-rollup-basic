@@ -1,3 +1,8 @@
+/**
+ * References:
+ * rollup-plugin-root-import: https://github.com/mixmaxhq/rollup-plugin-root-import
+ */
+
 import { resolve } from "path";
 import { Plugin } from "rollup";
 import { FilterPattern, createFilter } from "@rollup/pluginutils";
